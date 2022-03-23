@@ -13,7 +13,7 @@ import {
   ApolloServerPluginLandingPageDisabled,
   ApolloServerPluginLandingPageGraphQLPlayground,
 } from "apollo-server-core";
-import {getAuth} from "firebase-admin/lib/auth";
+import admin from 'firebase-admin'
 
 const express = require("express");
 const url = require("url");
@@ -24,7 +24,7 @@ let token = null;
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 const getToken = (idToken: string) => {
- return getAuth()
+ return admin.auth()
       .verifyIdToken(idToken)
       .then((decodedToken) => {
         const uid = decodedToken.uid;
@@ -65,8 +65,8 @@ const startServer = async () => {
       if (accessToken && accessToken.indexOf("Bearer") !== -1) {
         accessToken = accessToken.slice("Bearer ".length);
       }
-      const auth = getToken(accessToken)
-      console.log(auth)
+      // const auth = getToken(accessToken)
+      // console.log(auth)
       return {
         accessToken: accessToken,
         tokenForDirectGrant: "",

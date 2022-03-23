@@ -3,6 +3,7 @@ import { Resolvers } from "../../api/models";
 export const productResolver: Resolvers = {
   Query: {
     getProducts: async (_source, _args, { dataSources, accessToken }) => {
+      console.log("requested")
       return await dataSources.ProductDataSource.getProducts()
     },
 
