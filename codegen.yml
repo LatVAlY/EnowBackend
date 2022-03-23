@@ -1,0 +1,9 @@
+schema:
+  - 'graphql-schema/schema/schema.graphql'
+generates:
+  ./src/api/models.ts:
+    config:
+      contextType: ./Context#MyContext
+    plugins:
+      - typescript
+      - typescript-resolvers

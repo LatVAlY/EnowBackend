@@ -1,0 +1,48 @@
+enum Gender{
+    MALE,
+    FEMALE,
+}
+
+type User{
+    uuid: String
+    active: Boolean
+    createdAt: String
+    isDeleted: Boolean
+    deletedAt: String
+
+    email: String
+    username: String
+    firstname: String
+    lastname: String
+
+    salutation: String
+    telephoneNumber: String
+    entitlements: [String!]
+}
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type Query{
+    getMe: User
+    getProducts: JSON
+    getProduct(id: Int!): JSON
+}
+
+type Image {
+    title: String,
+    imgUrl: String,
+}
+
+type Product {
+    name: String,
+    id: Int,
+    user: String,
+    price: Float,
+    description: String,
+    posted: String,
+    images: [Image],
+    address: String,
+}
+
+type Mutation {
+    addProduct(input: JSON! ): Boolean
+}

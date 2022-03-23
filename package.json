@@ -1,0 +1,54 @@
+{
+  "name": "kleinanzeige",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "abdel",
+  "license": "MIT",
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/typescript": "^2.4.5",
+    "@graphql-codegen/typescript-resolvers": "^2.5.2",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/lodash": "^4.14.179",
+    "@types/minio": "^7.0.12",
+    "@types/webpack-env": "^1.16.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "dotenv": "^10.0.0",
+    "prettier": "^2.5.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "apollo-datasource-rest": "^3.3.0",
+    "apollo-server": "^3.4.0",
+    "apollo-server-express": "^3.5.0",
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.2",
+    "dataloader": "^2.0.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^10.0.2",
+    "form-data": "^4.0.0",
+    "graphql": "^15.6.1",
+    "graphql-tools": "8.2.0",
+    "graphql-upload": "^13.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^2.0.5",
+    "lodash": "^4.17.21",
+    "minio": "^7.0.26",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "watch": "NODE_ENV=development yarn run build",
+    "build": "webpack --config webpack.$NODE_ENV.js",
+    "build:dev": "webpack --config webpack.development.js",
+    "start": "node --require dotenv/config dist/server",
+    "generate": "graphql-codegen"
+  },
+  "resolutions": {
+    "ansi-regex": "5.0.1"
+  }
+}

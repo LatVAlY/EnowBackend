@@ -1,0 +1,17 @@
+trigger:
+  - main
+
+variables:
+  - group: WLTP
+  - name: vmImageName
+    value: 'ubuntu-latest'
+
+steps:
+  - checkout: self
+    submodules: true
+  - task: CmdLine@2
+    inputs:
+      script: |
+        git checkout $(Build.SourceBranchName)
+        git remote add mbga https://$(MBGA_PAT):@git.daimler.com/WLTP-Frontend/wltp-graphql-schema.git
+        git push -u mbga main
