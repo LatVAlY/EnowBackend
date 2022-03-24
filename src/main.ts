@@ -1,4 +1,4 @@
-import {handleDownloadRequest} from "./helpers/fileHelper";
+
 import {ApolloServer} from "apollo-server-express";
 import {graphqlUploadExpress} from "graphql-upload";
 import {resolvers} from "./resolvers/resolvers";
@@ -86,9 +86,6 @@ const startServer = async () => {
     console.log(
       `🚀 Server ready at http://localhost:${environment.port}${apolloServer.graphqlPath}`
     );
-  });
-  app.post("/download", express.json(), function (req, res) {
-    handleDownloadRequest(req, res);
   });
 
   if (module.hot) {
