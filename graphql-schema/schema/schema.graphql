@@ -25,6 +25,7 @@ type Query{
     getMe: User
     getProducts: JSON
     getProduct(id: Int!): JSON
+    searchProduct(q: String): [Product]
 }
 
 type Image {

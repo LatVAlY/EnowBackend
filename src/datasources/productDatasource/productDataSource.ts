@@ -1,5 +1,4 @@
 import { RESTDataSource } from "apollo-datasource-rest";
-import { environment } from "../../helpers/environment";
 import {ProductsData} from "../../api/productService";
 
 export class ProductDataSource extends RESTDataSource {
@@ -15,6 +14,4 @@ export class ProductDataSource extends RESTDataSource {
     async addProduct(product : any) {
         return true
     }
-
-
 }
